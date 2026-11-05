@@ -23,3 +23,4 @@ rootProject.name = "impression-tracker-sdk"
 include(":ad-network-alpha")
 include(":ad-network-beta")
 include(":impression-tracker")
+include(":app")
