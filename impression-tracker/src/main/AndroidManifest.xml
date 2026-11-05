@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+      Delivering impressions needs network access. This is a normal permission,
+      granted at install time, so it adds no prompt for the user.
+    -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!--
+      Required by the daily job's connectivity constraint: without it the
+      platform refuses to schedule a job that waits for a network. Like
+      INTERNET this is a normal permission, granted at install time.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!--
+      networkSecurityConfig is honoured from API 24 onwards and ignored below
+      it. Nothing is lost: cleartext traffic is allowed by default before API
+      28 anyway, so the loopback backend is reachable on every supported
+      version. Hence the suppression rather than a second manifest.
+    -->
+    <application
+        android:networkSecurityConfig="@xml/impression_tracker_network_security_config"
+        tools:ignore="UnusedAttribute">
+        <!--
+          Merged into the host application's manifest by the manifest merger.
+          Declaring the provider here is what starts the SDK: the host app calls
+          nothing, so there is no other way in.
+
+          The authority carries ${applicationId} because provider authorities
+          must be unique across every app installed on a device. Without the
+          placeholder, two apps embedding this SDK could not be installed side
+          by side.
+        -->
+        <provider
+            android:name=".internal.platform.startup.TrackerInitProvider"
+            android:authorities="${applicationId}.impressiontracker"
+            android:exported="false" />
+
+        <!--
+          Runs the daily delivery of queued impressions. The permission is the
+          one the platform requires so that only the system may bind to it.
+        -->
+        <service
+            android:name=".internal.platform.scheduling.DailyFlushJobService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+    </application>
+
+</manifest>
