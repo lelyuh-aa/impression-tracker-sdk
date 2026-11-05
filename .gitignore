@@ -1,0 +1,22 @@
+# Gradle
+.gradle/
+build/
+
+# Local environment configuration (machine-specific, must not be shared)
+local.properties
+
+# IDE and tooling
+.idea/
+*.iml
+.vscode/
+.kotlin/
+
+# Android build outputs
+*.apk
+*.aab
+*.ap_
+*.dex
+captures/
+
+# OS
+.DS_Store
