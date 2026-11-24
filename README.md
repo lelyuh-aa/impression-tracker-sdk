@@ -10,6 +10,11 @@ Intercepted impression event:
 - Bidder Name: ACME
 ```
 
+![Architecture of the SDK: the host application and two third-party ad SDKs on
+the left, the tracker's interception, domain, data and platform layers in the
+middle, and batched at-least-once delivery to a backend on the
+right](docs/architecture.webp)
+
 ---
 
 ## Table of contents
