@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Three bars: a neutral mark for a telemetry SDK's demo application. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M33,58 L33,58 A7,7 0 0 1 40,65 L40,73 A7,7 0 0 1 33,80 L33,80 A7,7 0 0 1 26,73 L26,65 A7,7 0 0 1 33,58 Z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M54,46 L54,46 A7,7 0 0 1 61,53 L61,73 A7,7 0 0 1 54,80 L54,80 A7,7 0 0 1 47,73 L47,53 A7,7 0 0 1 54,46 Z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M75,30 L75,30 A7,7 0 0 1 82,37 L82,73 A7,7 0 0 1 75,80 L75,80 A7,7 0 0 1 68,73 L68,37 A7,7 0 0 1 75,30 Z" />
+</vector>
